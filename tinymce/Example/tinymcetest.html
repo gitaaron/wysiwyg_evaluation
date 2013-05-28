@@ -9,11 +9,17 @@
 		    width: 600,
 		});
 
+    function insert() {
+        tinymce.activeEditor.insertContent('<h1>hello</h1>');
+    }
+
 		
 </script>
 
 <form method="post" action="somepage">
     <textarea name="content" class="tinyMCE-test" ></textarea>
 </form>
+
+<button onclick="insert();">Insert</button>
 
 </html>
