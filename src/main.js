@@ -1,10 +1,12 @@
 require.config({
     paths:{
         'jquery':'../lib/jquery-1.7.2.min',
+        'tinymce_jquery':'../lib/jquery.tinymce.min',
         'wysihtml5':'../lib/wysihtml5-0.3.0',
         'prettify':'../lib/prettify',
         'bootstrap':'../lib/bootstrap',
-        'bootstrap-wysihtml5':'../lib/bootstrap-wysihtml5'
+        'bootstrap-wysihtml5':'../lib/bootstrap-wysihtml5',
+        'tinymce':'../lib/tinymce'
     },
 
     shim: {
@@ -13,11 +15,14 @@ require.config({
         },
         'wysihtml5':{
             deps:['jquery', 'prettify']
+        },
+        'tinymce_jquery':{
+            deps:['jquery']
         }
 
     }
 });
 
-require(['my-bootstrap-wysihtml5'], function() {
-    console.log('required');
+require(['my-bootstrap-wysihtml5', 'my-tinymce'], function() {
+    console.log('requireds');
 });

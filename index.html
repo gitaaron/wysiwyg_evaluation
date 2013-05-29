@@ -4,7 +4,6 @@
             var require = { deps:['main'], baseUrl:'src'};
         </script>
         <script src="lib/require.js"></script>
-
         <link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"></link>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
 
@@ -20,6 +19,18 @@
                 height:300px;
             }
         </style>
+
+        <h1>tinymce</h1>
+        <script type="text/javascript">
+            function insert() {
+                tinymce.activeEditor.insertContent('<h1>hello</h1>');
+            }
+        </script>
+
+        <form method="post" action="somepage">
+            <textarea name="content" class="tinyMCE-test" ></textarea>
+        </form>
+        <button onclick="insert();">Insert</button>
 
 
     </body>
