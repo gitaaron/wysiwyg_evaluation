@@ -6,7 +6,8 @@ require.config({
         'prettify':'../lib/prettify',
         'bootstrap':'../lib/bootstrap',
         'bootstrap-wysihtml5':'../lib/bootstrap-wysihtml5',
-        'tinymce':'../lib/tinymce'
+        'tinymce':'../lib/tinymce',
+        'ckeditor':'../lib/ckeditor/ckeditor'
     },
 
     shim: {
@@ -23,6 +24,6 @@ require.config({
     }
 });
 
-require(['my-bootstrap-wysihtml5', 'my-tinymce'], function() {
+require(['my-bootstrap-wysihtml5', 'my-tinymce', 'my-ckeditor'], function() {
     console.log('requireds');
 });
