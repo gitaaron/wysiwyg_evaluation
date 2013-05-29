@@ -1,7 +1,7 @@
 require.config({
     paths:{
         'jquery':'../lib/jquery-1.7.2.min',
-        'tinymce_jquery':'../lib/jquery.tinymce.min',
+        'tinymce_jquery':'../lib/tinymce/jquery.tinymce.min',
         'wysihtml5':'../lib/wysihtml5-0.3.0',
         'prettify':'../lib/prettify',
         'bootstrap':'../lib/bootstrap',
@@ -25,5 +25,5 @@ require.config({
 });
 
 require(['my-bootstrap-wysihtml5', 'my-tinymce', 'my-ckeditor'], function() {
-    console.log('requireds');
+    console.log('required');
 });
