@@ -6,6 +6,7 @@ define(['tinymce_jquery'], function() {
             plugins: ["textcolor code"],	
             toolbar: "fontsizeselect | forecolor | bold italic underline | alignleft aligncenter alignright",
             width: 600,
+            menubar: "false"
         });
 
         $('#tinymce-container pre').click(function() {

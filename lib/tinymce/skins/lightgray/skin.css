@@ -130,7 +130,6 @@ div.mce-fullscreen {
 .mce-tinymce {
   display: block;
   border-radius: 2px;
-  border: none;
 }
 .mce-wordcount {
   float: right;
@@ -139,7 +138,6 @@ div.mce-fullscreen {
 .mce-edit-area {
   background: #FFF;
   filter: none;
-  border-width: 1px;
 }
 .mce-statusbar {
   position: relative;
@@ -202,20 +200,6 @@ div.mce-tinymce-inline {
 .mce-container,
 .mce-container-body {
   display: block;
-  border: none;
-}
-.mce-container .mce-statusbar,
-.mce-container-body .mce-statusbar {
-  border-width: 1px;
-  background-color: #f0f0f0;
-  background-image: -moz-linear-gradient(top, #fdfdfd, #dddddd);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#dddddd));
-  background-image: -webkit-linear-gradient(top, #fdfdfd, #dddddd);
-  background-image: -o-linear-gradient(top, #fdfdfd, #dddddd);
-  background-image: linear-gradient(to bottom, #fdfdfd, #dddddd);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdfdfd', endColorstr='#ffdddddd', GradientType=0);
-  zoom: 1;
 }
 .mce-autoscroll {
   overflow: hidden;

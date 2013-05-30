@@ -2,6 +2,12 @@
 
 .mce-container, .mce-container-body {
 	display: block;
+	border: none;
+
+	.mce-statusbar{
+		border-width: 1px;
+		.vertical-gradient(@panel-background, @panel-background-highlight);
+	}
 }
 
 .mce-autoscroll {
