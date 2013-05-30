@@ -62,24 +62,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-        <script type="text/javascript">
-            function insertck(){
-                CKEDITOR.instances.ckeditor.insertText("Insert");
-            }
-          </script>  
-        <textarea id="ckeditor"></textarea>
-        <button onclick="insertck();">Insert</button>
-        <h1>jhtmlarea</h1>
-
-        <script type="text/javascript">
-            function insertjHtml(){
-                $('#jhtmlarea').htmlarea('pasteHTML', "Hello world!");
-            }
-        </script>
-        <textarea id="jhtmlarea"></textarea>
-        <button onclick="insertjHtml();">Insert</button>
-=======
         <div class="container" id="tinymce-container">
             <div class="row">
                 <div class="span8">
@@ -185,7 +167,14 @@
                 </div>
             </div>
         </div>
->>>>>>> 7fb8d37e510782f4ceb6a1619a3b43ce6d8167ef
+
+        <script type="text/javascript">
+            function insertjHtml(){
+                $('#jhtmlarea').htmlarea('pasteHTML', "Hello world!");
+            }
+        </script>
+        <button onclick="insertjHtml();">Insert</button>
+
 
     </body>
 </html>
