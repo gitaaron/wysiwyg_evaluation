@@ -10,6 +10,11 @@ define(['bootstrap-wysihtml5'], function() {
                 "color": true, //Button to change color of font  
         });
 
+        $('#wysihtml5-insert-container pre').click(function() {
+            var str = $(this).html().trim();
+            g_wysiEditor.editor.currentView.commands.exec('insertHTML', str);
+        });
+
         $('#wysi-insert').click(function() {
             g_wysiEditor.editor.currentView.commands.exec('insertHTML', '<h1>hello</h1>');
         });
