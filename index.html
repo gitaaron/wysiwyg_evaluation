@@ -43,7 +43,14 @@
         <textarea id="ckeditor"></textarea>
         <button onclick="insertck();">Insert</button>
         <h1>jhtmlarea</h1>
+
+        <script type="text/javascript">
+            function insertjHtml(){
+                $('#jhtmlarea').htmlarea('pasteHTML', "Hello world!");
+            }
+        </script>
         <textarea id="jhtmlarea"></textarea>
+        <button onclick="insertjHtml();">Insert</button>
 
     </body>
 </html>
