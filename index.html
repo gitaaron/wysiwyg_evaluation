@@ -17,6 +17,10 @@
                     width:100%;
                     height:400px;
                 }
+
+                #wysihtml5-insert-container {
+                    margin-top:50px;
+                }
         </style>
 
         <div class="container" id="wysihtml5-insert-container">
@@ -53,29 +57,111 @@
             </div>
         </div>
 
-        <h1>tinymce</h1>
-        <script type="text/javascript">
-            function insert() {
-                tinymce.activeEditor.insertContent('<h1>hello</h1>');
-            }
-        </script>
+        <div class="container" id="tinymce-container">
+            <div class="row">
+                <div class="span8">
+                    <h1>tinymce</h1>
+                    <form method="post" action="somepage">
+                        <textarea name="content" class="tinyMCE-test" ></textarea>
+                    </form>
+                </div>
+                <div class="span4">
+                     <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <h1>here is a heading</h1><span>and another span</span>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <div><span>here is a <em>span</em> inside a div</span></div>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                here is some plain text
+                            </pre>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
 
-        <form method="post" action="somepage">
-            <textarea name="content" class="tinyMCE-test" ></textarea>
-        </form>
-        <button onclick="insert();">Insert</button>
 
-        <h1>ckeditor</h1>
+        <div class="container" id="ckeditor-container">
+            <div class="row">
+                <div class="span8">
+                    <h1>ckeditor</h1>
+                    <textarea id="ckeditor"></textarea>
 
-        <script type="text/javascript">
-            function insertck(){
-                CKEDITOR.instances.ckeditor.insertText("Insert");
-            }
-          </script>  
-        <textarea id="ckeditor"></textarea>
-        <button onclick="insertck();">Insert</button>
-        <h1>jhtmlarea</h1>
-        <textarea id="jhtmlarea"></textarea>
+                </div>
+
+                <div class="span4">
+                     <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <h1>here is a heading</h1><span>and another span</span>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <div><span>here is a <em>span</em> inside a div</span></div>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                here is some plain text
+                            </pre>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h1>jhtmlarea</h1>
+                    <textarea id="jhtmlarea"></textarea>
+                </div>
+
+                <div class="span4">
+                     <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <h1>here is a heading</h1><span>and another span</span>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                <div><span>here is a <em>span</em> inside a div</span></div>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <pre>
+                                here is some plain text
+                            </pre>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>
