@@ -35,8 +35,13 @@
 
         <h1>ckeditor</h1>
 
+        <script type="text/javascript">
+            function insertck(){
+                CKEDITOR.instances.ckeditor.insertText("Insert");
+            }
+          </script>  
         <textarea id="ckeditor"></textarea>
-
+        <button onclick="insertck();">Insert</button>
         <h1>jhtmlarea</h1>
         <textarea id="jhtmlarea"></textarea>
 
