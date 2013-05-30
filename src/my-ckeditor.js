@@ -4,7 +4,7 @@ define(['ckeditor', 'jquery'], function() {
 
         $('#ckeditor-container pre').click(function() {
             var str = $(this).html().trim();
-            CKEDITOR.instances.ckeditor.insertText(str);
+            CKEDITOR.instances.ckeditor.insertHtml(str);
         });  
 
     });
