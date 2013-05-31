@@ -8,6 +8,10 @@ define(['bootstrap-wysihtml5'], function() {
                 "link": false, //Button to insert a link. Default true
                 "image": false, //Button to insert an image. Default true,
                 "color": true, //Button to change color of font  
+                parserRules:{
+                    classes:{},
+                    tags:{}
+                }
         });
 
         $('#wysihtml5-insert-container pre').click(function() {
