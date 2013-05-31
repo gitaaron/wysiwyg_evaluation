@@ -11,6 +11,8 @@ browser = ENV['BROWSER'] || 'chrome'
 #location of selenium server
 selenium_server = ENV['SELENIUM_SERVER']
 
+Capybara.app_host = 'http://localhost:3000'
+
 #if no server location is specified, location will default to local
 #browser defaults to firefox so browser field may be left empty
 if (selenium_server.nil?)
