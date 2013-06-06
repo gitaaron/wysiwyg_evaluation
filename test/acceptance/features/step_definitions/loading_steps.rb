@@ -1,4 +1,5 @@
 html_selector = HTMLSelector.new
+html_validator = HTMLValidator.new
 key_handler = KeyHandler.new
 
 Given /^I am on the editor page$/ do
@@ -34,8 +35,12 @@ And /^I select the text "(.*)"$/ do |text|
 end
 
 And /^I place the cursor at index (.*)$/ do |index|
-	html_selector.placeCursorAt(index)
+	html_selector.placeCursorAtIndex(index)
 end
+
+And /^I place the cursor before the text "(.*)"$/ do |text|
+	html_selector.placeCursorBeforeText(text)
+end	
 
 And /^I click the (.*) style button$/ do |style|
 	xpath = "//a[@data-wysihtml5-command=\""+style+"\"]"
@@ -44,6 +49,10 @@ end
 
 And /^I use the Ctrl+(.*) keyboard shortcut$/ do |shortcut|
 	key_handler.ctrlShortcut(page.find('.wysihtml5-sandbox'), shortcut)
+end
+
+And /^I use the Cmd+(.*) keyboard shortcut$/ do |shortcut|
+	key_handler.macNativeShortcut(page.find('.wysihtml5-sandbox'), shortcut)
 end
 
 And /^I type "(.*)"$/ do |keystrokes|
@@ -56,7 +65,18 @@ Then /^the editors html should be set to the (.*) standard response$/ do |respon
 end
 
 Then /^the html should be "(.*)"$/ do |expectedHtml|
-	html_selector.validateHtml(expectedHtml)
+	html_validator.validateHtml(expectedHtml)
 end
+
+Then /^the text "(.*)" should be set to (.*)$/ do |text, style|
+	page.execute_script("$('.wysihtml5-sandbox')[0].setAttribute('name', 'wysihtml5')")
+	within_frame('wysihtml5') do
+		page.find('body').has_css?(STYLE_LABELS[style], :text => text).should == true 	
+	end
+end
+
+
+	
+
 
 

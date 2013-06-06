@@ -40,4 +40,5 @@ class HTMLValidator
 
 		return cleanHtml
 	end
+
 end

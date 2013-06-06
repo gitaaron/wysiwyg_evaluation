@@ -18,3 +18,11 @@ Feature: I want to be able to use keyboard shortcuts
 		Then the html should be "We are going to change the <u>style</u> of this"
 		When I use the Ctrl+z keyboard shortcut
 		Then the html should be "We are going to change the style of this"
+
+	Scenario: Using cut and paste
+		When I insert the text " copied to the front The back of this will be"
+		And I select the text "The back of this will be"
+		And I use the Cmd+x keyboard shortcut
+		And I place the cursor at index 0
+		And I use the Cmd+p keyboard shortcut
+		Then the html should be "The back of this will becopied to the front "

@@ -1,8 +1,8 @@
 class HTMLSelector
 	include Capybara::DSL
 
-	#define text selection JS function
-	#not certain if there is a simpler way that capybara can do this
+	# define text selection JS function
+	# not certain if there is a simpler way that capybara can do this
 	def setupSelectFunction()
 		page.execute_script("
 			selectText = function(el, start, end){
@@ -16,7 +16,7 @@ class HTMLSelector
 		")
 	end
 
-	#select a specified word in the first (innermost) html element in the editor 
+	# select some specified text in the first (innermost) html element in the editor 
 	def selectHTMLByText(text)
 		self.setupSelectFunction()
 		page.execute_script("
@@ -35,7 +35,7 @@ class HTMLSelector
 		    ")
 	end
 
-	#place the caret at the specified index
+	# place the caret at the specified index
 	def placeCursorAtIndex(index)
 		self.setupSelectFunction()
 		page.execute_script("
@@ -45,14 +45,22 @@ class HTMLSelector
 			")
 	end
 
-	#check the html in the editor to verify that it is the expected result
-	def validateHtml(expectedValue)
-		html = evaluate_script("$('.wysihtml5-sandbox').contents().find('body')[0].innerHTML")
-		#remove the BOM that may be found in obtained html
-		#we probably should not have to do this, and instead fix issues with character encoding in the editor
-		html.gsub!("\xEF\xBB\xBF".force_encoding("UTF-8"), '')
-		html.gsub!(/\&nbsp;/, ' ')
-		html.should == expectedValue
+	def placeCursorBeforeText(text)
+		self.setupSelectFunction()
+		 page.execute_script("var textarea = $('.wysihtml5-sandbox').contents().find('body')[0];
+			var textToSelect = '#{text}';
+			var el = textarea.firstChild;
+
+			//finds the innermost html element  
+			while(el.outerHTML){
+				console.log('iterated once');
+				el = el.firstChild;
+			}
+
+			var startInd = el.textContent.search(textToSelect);
+			selectText(el, startInd, startInd)
+			")
 	end
-	
+
+		
 end

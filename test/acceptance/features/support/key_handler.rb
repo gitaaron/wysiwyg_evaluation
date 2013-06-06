@@ -8,7 +8,7 @@ class KeyHandler
 
 	#testing native shortcuts for mac 
 	def macNativeShortcut(element, key)
-		element.native.send_keys [:command, key]
+		element.native.send_keys [:meta, key]
 	end	
 
 	def otherKeystrokes(element, key)

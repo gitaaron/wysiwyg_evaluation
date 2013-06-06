@@ -6,27 +6,27 @@ Feature:
 		And I click the bootstrap-wysihtml5 editor area
 
 	Scenario: select some text and make it bold in bootstrap-wysihtml5
-		And I insert the text "I want this text to be bold"
+		When I insert the text "I want this text to be bold"
 		And I select the text "bold"
 		And I click the bold style button
-		Then the html should be "I want this text to be <b>bold</b>"
+		Then the text "bold" should be set to bold
 
 	Scenario: using a shortcut should change the style
-		And I insert the text "I want this text to be underlined"
+		When I insert the text "I want this text to be underlined"
 		And I select the text "underlined"
-		And I use the Ctrl+u keyboard shortcut
-		Then the html should be "I want this text to be <u>underlined</u>"
+		And I use the Cmd+u keyboard shortcut
+		Then the text "underlined" should be set to underline
 
 	Scenario: removing a style
-		And I click the italic style button
+		When I click the italic style button
 		And I type "This text should not be italicized"
-		Then the html should be "<i>This text should not be italicized</i>"
+		Then the text "This text should not be italicized" should be set to italic
 		And I select the text "This text should not be "
 		And I click the italic style button
 		Then the html should be "This text should not be <i>italicized</i>"
 
 	Scenario: cleaning up style html
-		And I type "This text is not bold yet"
+		When I type "This text is not bold yet"
 		And I click the bold style button
 		And I type "this text is bold"
 		Then the html should be "This text is not bold yet<b>this text is bold</b>"
@@ -34,3 +34,9 @@ Feature:
 		And I click the bold style button
 		Then the html should be "<b>This text is not bold yetthis text is bold</b>"
 
+	Scenario: Modifying color
+		When I insert the text "I want this text to be red"
+		And I select the text "I want this text to be red"
+		And I change the text color to red
+		Then the text "I want this text to be red" should be the colour red
+		
