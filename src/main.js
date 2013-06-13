@@ -44,9 +44,13 @@ require.config({
 
 var g_plaintext_mode = getQueryVariable('plain_mode') === '1';
 
-require(['backbone', 'underscore', 'text!./main.tpl.html', 'my-bootstrap-wysihtml5', 'my-tinymce', 'my-ckeditor', 'my-jhtmlarea'], function(Backbone, _, mainTemplate, my_bootstrap_wysihtml5, my_tinymce, my_ckeditor, my_jhtmlarea) {
+require(['backbone', 'underscore', 'my-backbone-view'], function(Backbone, _, MyBackboneView) {
 
-    $('#test').html(_.template(mainTemplate, {test:'test'}));
+
+    myBackboneView = new MyBackboneView().render();
+
+    $('#test').html(myBackboneView.$el);
+    myBackboneView.initializeTextEditors();
 
     if(g_plaintext_mode) {
         $('#plain_mode_item').addClass('active');
@@ -54,10 +58,6 @@ require(['backbone', 'underscore', 'text!./main.tpl.html', 'my-bootstrap-wysihtm
         $('#html_mode_item').addClass('active');
     }
 
-    my_bootstrap_wysihtml5.initialize();
-    my_tinymce.initialize();
-    my_ckeditor.initialize();
-    my_jhtmlarea.initialize();
 
 });
 
