@@ -3,26 +3,44 @@ class HTMLValidator
 
     @html = nil
 
-    def getHtml()
-    	@html = cleanUpParsedHtml(page.evaluate_script("$('.wysihtml5-sandbox').contents().find('body')[0].innerHTML"))
+    def getHtml(editor)
+    	@html = cleanUpParsedHtml(editor.getHtml())
     end
 
-	def checkTextIsStyle(text, style)
-		getHtml()
-		match = STYLE_TAGS[style+"_start"] + text + STYLE_TAGS[style+"_end"]
-		exp = Regexp.new match
+    def assignIframeName(editor)
+    	editor.assignIframeName()
+	end
 
-		(@html =~ exp).should_not == nil
+	def checkTextIsStyle(text, style, editor)
+		assignIframeName(editor)
+		name = page.evaluate_script("$('.wysihtml5-sandbox')[0].getAttribute('name')")
+		within_frame(name) do
+			page.find('body').has_css?(editor.getStyle(style), :text => text).should == true 	
+		end
+	end
+
+	def checkTextIsColour(text, colour, editor)
+		assignIframeName(editor)
+		within_frame(editor.getEditorName()) do
+			page.find('body').has_css?('span.wysiwyg-color-'+colour, :text => text).should == true
+		end
+	end
+
+	def checkForEmptyTags(style, editor)
+		assignIframeName(editor)
+		within_frame(editor.getEditorName()) do 
+			page.find('body').has_css?(editor.getStyle(style), "").should_not == true
+		end
 	end
 
 	#check the html in the editor to verify that it is the expected result
-	def validateHtml(expectedValue)	
-		getHtml()
+	def validateHtml(editor, expectedValue)	
+		getHtml(editor)
 		@html.should == expectedValue
 	end
 
-	def matchStandardResponse(responseNo)
-		getHtml()
+	def matchStandardResponse(editor, responseNo)
+		getHtml(editor)
 		@html.should == STANDARD_RESPONSES[responseNo]
 	end
 

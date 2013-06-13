@@ -5,29 +5,20 @@ STANDARD_RESPONSES =
 	"third" => "here is some plain text"
 }
 
-STYLE_TAGS = 
-{
-	"bold_start" => "<b>",
-	"bold_end" => "</b>",
-	"underline_start" => "<u>",
-	"underline_end" => "</u>",
-	"italic_start" => "<i>",
-	"italic_end" => "</i>",
-	"unorderedlist_start" => "<ul>",
-	"unorderedlist_end" => "</ul>",
-	"orderedlist_start" => "<ol>",
-	"orderedlist_end" => "</ol>",
-	"listitem_start" => "<li>",
-	"listitem_end" => "</li>",
-	"header1_start" => "<h1>",
-	"header1_end" => "</h1>"
-}
-
 STYLE_LABELS = 
 {
 	"bold" => "b",
 	"underline" => "u",
-	"italic" => "i"
+	"italic" => "i",
+	"list item" => "li",
+	"unordered list" => "ul",
+	"header 1" => "h1",
+	"header 2" => "h2",
+	"header 3" => "h3",
+	"header 4" => "h4",
+	"header 5" => "h5",
+	"header 6" => "h6",
+	"indented" => "blockquote"
 }
 
 

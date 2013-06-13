@@ -7,6 +7,7 @@ Capybara.run_server = false
 
 #browser to be used in the test
 browser = ENV['BROWSER'] || 'chrome'
+@browserid = browser
 
 #location of selenium server
 selenium_server = ENV['SELENIUM_SERVER']
@@ -30,5 +31,27 @@ else
       :desired_capabilities => browser.to_sym)
   end
 end
+
+class CustomWorld
+
+  @editor = nil
+  @browser = @browserid
+  def setupEditor(editor)
+      case editor
+        when "bootstrap-wysihtml5"
+          @editor = Wysihtml5Editor.new
+        when "tinymce"
+          @editor = TinyMCE.new
+      end
+  end
+
+end
+
+World do
+  CustomWorld.new
+
+end
+
+
 
 

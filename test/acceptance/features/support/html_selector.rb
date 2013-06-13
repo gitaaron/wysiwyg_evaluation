@@ -3,10 +3,11 @@ class HTMLSelector
 
 	# define text selection JS function
 	# not certain if there is a simpler way that capybara can do this
-	def setupSelectFunction()
+	def setupSelectFunction(editor)
+
 		page.execute_script("
 			selectText = function(el, start, end){
-				var sel = window.getSelection();
+				var sel = "+editor.iFramePathString()+".getSelection();
 			    var range = window.document.createRange();
 			    range.setStart(el, start);
 			    range.setEnd(el, end);
@@ -17,8 +18,8 @@ class HTMLSelector
 	end
 
 	# select some specified text in the first (innermost) html element in the editor 
-	def selectHTMLByText(text)
-		self.setupSelectFunction()
+	def selectHTMLByText(text, editor)
+		self.setupSelectFunction(editor)
 		page.execute_script("
 			var textarea = $('.wysihtml5-sandbox').contents().find('body')[0];
 			var textToSelect = '#{text}';
@@ -36,8 +37,8 @@ class HTMLSelector
 	end
 
 	# place the caret at the specified index
-	def placeCursorAtIndex(index)
-		self.setupSelectFunction()
+	def placeCursorAtIndex(index, editor)
+		self.setupSelectFunction(editor)
 		page.execute_script("
 			var textarea = $('.wysihtml5-sandbox').contents().find('body')[0];
 			var el = textarea.firstChild;
@@ -45,8 +46,8 @@ class HTMLSelector
 			")
 	end
 
-	def placeCursorBeforeText(text)
-		self.setupSelectFunction()
+	def placeCursorBeforeText(text, editor)
+		self.setupSelectFunction(editor)
 		 page.execute_script("var textarea = $('.wysihtml5-sandbox').contents().find('body')[0];
 			var textToSelect = '#{text}';
 			var el = textarea.firstChild;

@@ -4,11 +4,11 @@ Feature:
 
 	Background: 
 		Given I am on the editor page
-		And I am using the bootstrap-wysihtml5 editor
-		And I click the bootstrap-wysihtml5 editor area
+		And I am using the tinymce editor
+		And I click the tinymce editor area
 
 	@insertion
-	Scenario: Insert some text into bootstrap-wysihtml5
+	Scenario: Insert some text into tinymce
 		When I click insert field 1
 		And I click to show html
 		Then the editors html should be set to the first standard response
