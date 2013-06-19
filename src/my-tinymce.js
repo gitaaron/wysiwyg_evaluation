@@ -5,7 +5,7 @@ define(['exports', 'tinymce_jquery'], function(exports) {
                 script_url:'lib/tinymce/tinymce.js',
                 selector: "textarea",
                 plugins: ["textcolor code paste"],	
-                toolbar: "fontsizeselect | forecolor | bold italic underline | alignleft aligncenter alignright",
+                toolbar: "fontsizeselect | forecolor | bold italic underline | alignleft aligncenter alignright | code",
                 width: 600,
                 menubar: "false",
                 paste_auto_cleanup_on_paste : true,
