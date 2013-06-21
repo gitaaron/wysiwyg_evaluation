@@ -1,4 +1,3 @@
-
 require.config({
     paths:{
         'jquery':'../lib/jquery-1.7.2.min',
@@ -10,7 +9,11 @@ require.config({
         'tinymce':'../lib/tinymce',
         'ckeditor':'../lib/ckeditor/ckeditor',
         'jhtmlarea':'../lib/jhtmlarea/jHtmlArea-0.7.5',
-        'jquery-ui':'../lib/jquery-ui-1.7.2.custom.min'
+        'jquery-ui':'../lib/jquery-ui-1.7.2.custom.min',
+        'backbone':'../lib/misc/backbone',
+        'underscore':'../lib/misc/underscore',
+        'underscore.string':'../lib/misc/underscore.string.min',
+        'text':'../lib/misc/text'
     },
 
     shim: {
@@ -25,6 +28,14 @@ require.config({
         },
         'jhtmlarea':{
             deps:['jquery-ui']
+        },
+        'underscore':{
+            exports:'_',
+            deps:['underscore.string']
+        },
+        'backbone':{
+            exports:'Backbone',
+            deps:['underscore','jquery']
         }
 
     }
@@ -32,12 +43,21 @@ require.config({
 
 var g_plaintext_mode = getQueryVariable('plain_mode') === '1';
 
-require(['my-bootstrap-wysihtml5', 'my-tinymce', 'my-ckeditor', 'my-jhtmlarea'], function() {
+require(['backbone', 'underscore', 'my-backbone-view'], function(Backbone, _, MyBackboneView) {
+
+
+    myBackboneView = new MyBackboneView().render();
+
+    $('#test').html(myBackboneView.$el);
+    myBackboneView.initializeTextEditors();
+
     if(g_plaintext_mode) {
         $('#plain_mode_item').addClass('active');
     } else {
         $('#html_mode_item').addClass('active');
     }
+
+
 });
 
 function getQueryVariable(variable) {
